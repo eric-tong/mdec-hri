@@ -1,13 +1,29 @@
-import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import App from '../common/App'
-const app = express()
-app.get('/api', (req, res) => {
-    res.send({
-      message: 'I am a server route and can also be hot reloaded!'
-    })
-})
+import express from 'express'
+import graphqlHTTP from 'express-graphql'
+import { buildSchema } from 'graphql';
+
+const schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+
+const root = {
+  hello: () => {
+    return 'Hello world!';
+  },
+};
+
+const app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+
 app.get('*', (req,res) => {
     let application = renderToString(<App />)
     let html = `<!doctype html>
@@ -27,4 +43,5 @@ app.get('*', (req,res) => {
     </html>`
 res.send(html)
 })
+
 export default app
