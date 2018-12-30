@@ -50,8 +50,10 @@ export const MapStyle = {
         "composite": {
             "type": "vector",
             "tiles": [
-            "http://localhost:3000/maps/{z}/{x}/{y}.vector.pbf"
+            "http://localhost:3000/maps/{z}/{x}/{y}.vector.pbf",
+            //"https://api.mapbox.com/v4/mapbox.mapbox-streets-v7/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZXJpY3RvbmciLCJhIjoiY2pvYTN3bW9kMWhnODNrbzFjcmNyNGFhMiJ9.rxYNGFkKronoq0zloERbcQ"
             ],
+            "minzoom": 11,
             "maxzoom": 14
         }
     },
