@@ -35,6 +35,16 @@ app.get('*', (req,res) => {
             <meta name="description" content="">
             <meta name="viewport" 
             content="width=device-width,  initial-scale=1">
+            <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+            <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            #root {
+              height: 100%;
+            }
+            </style
         </head>
         <body>
             <div id="root">${application}</div>

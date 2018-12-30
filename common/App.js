@@ -1,3 +1,5 @@
 import React from 'react'
-const App = () => <div>Hello from React!</div>
+import Map from './Map.js'
+
+const App = () => <Map />
 export default App
