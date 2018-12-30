@@ -31,13 +31,13 @@ module.exports = {
  ],
  devServer: {
   host: 'localhost',
-  port: 3001,
+  port: 3000,
   historyApiFallback: true,
   hot: true
  },
  output: {
   path: path.join(__dirname, '.build'),
-  publicPath: 'http://localhost:3001/',
+  publicPath: 'http://localhost:3000/',
   filename: 'client.js'
  },
  mode: 'development'
