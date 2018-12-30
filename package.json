@@ -20,8 +20,6 @@
   "homepage": "https://github.com/eric-tong/mdec-hri#readme",
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
-    "@mapbox/mbtiles": "^0.10.0",
-    "@mapbox/tilelive": "^6.0.0",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
