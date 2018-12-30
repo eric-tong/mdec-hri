@@ -24,6 +24,8 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
+app.use(express.static('assets'));
+
 app.get('*', (req,res) => {
     let application = renderToString(<App />)
     let html = `<!doctype html>
@@ -52,6 +54,6 @@ app.get('*', (req,res) => {
         <script src="http://localhost:3001/client.js"></script>
     </html>`
 res.send(html)
-})
+});
 
 export default app

@@ -48,12 +48,14 @@ export const MapStyle = {
     "pitch": 0,
     "sources": {
         "composite": {
-            "url": "mapbox://mapbox.mapbox-streets-v7",
-            "type": "vector"
+            "type": "vector",
+            "tiles": [
+            "http://localhost:3000/maps/{z}/{x}/{y}.vector.pbf"
+            ],
+            "maxzoom": 14
         }
     },
-    "sprite": "mapbox://sprites/erictong/cjq9kk7nscbqn2rllekokwmfq",
-    "glyphs": "mapbox://fonts/erictong/{fontstack}/{range}.pbf",
+    "glyphs": "http://localhost:3000/fonts/{fontstack}/{range}.pbf",
     "layers": [
         {
             "id": "background",
