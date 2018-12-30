@@ -1,6 +1,6 @@
 export const MapStyle = {
     "version": 8,
-    "name": "Light",
+    "name": "MDEC",
     "metadata": {
         "mapbox:autocomposite": true,
         "mapbox:type": "default",
@@ -42,18 +42,15 @@ export const MapStyle = {
             "ios": "4.6.0"
         }
     },
-    "center": [-1.2578354732521575, 51.75176402683286],
-    "zoom": 14.70999713616552,
     "bearing": 0,
     "pitch": 0,
     "sources": {
         "composite": {
             "type": "vector",
             "tiles": [
-            "http://localhost:3000/maps/{z}/{x}/{y}.vector.pbf",
-            //"https://api.mapbox.com/v4/mapbox.mapbox-streets-v7/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZXJpY3RvbmciLCJhIjoiY2pvYTN3bW9kMWhnODNrbzFjcmNyNGFhMiJ9.rxYNGFkKronoq0zloERbcQ"
+            "http://localhost:3000/maps/{z}/{x}/{y}.vector.pbf"
             ],
-            "minzoom": 11,
+            "minzoom": 14,
             "maxzoom": 14
         }
     },
