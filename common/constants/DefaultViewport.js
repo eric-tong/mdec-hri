@@ -4,5 +4,6 @@ export const DefaultViewport = {
 	latitude: 51.7520,
 	longitude: -1.2577,
 	zoom: 15,
-	minZoom: 15
+	minZoom: 15,
+	maxZoom: 20
 }
