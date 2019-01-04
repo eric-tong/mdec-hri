@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
 import {MapStyle} from './styles/MapStyle.js';
 import DroneMarker from './components/DroneMarker.js';
-import {DefaultViewport} from './constants/DefaultViewport.js';
+import {DefaultViewport} from './styles/DefaultViewport.js';
 
 export default function Map() {
   const [viewport, setViewport] = useState(DefaultViewport);
