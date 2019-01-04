@@ -7,20 +7,24 @@ import {DefaultViewport} from './constants/DefaultViewport.js';
 export default function Map() {
   const [viewport, setViewport] = useState(DefaultViewport);
   const [offset, setOffset] = useState(0);
+  const [smoothTransition, setSmoothTransition] = useState(true);
 
   useEffect(() => {
-    const id = setInterval(() => setOffset(offset => offset + 0.0002), 2000);
-    return () => clearInterval(id);
+    // const id = setInterval(() => setOffset(offset => offset + 0.0002), 2000);
+    // return () => clearInterval(id);
   });
+
+  const onInteractionStateChange = ({isDragging, isPanning, isRotating, isZooming}) => {
+    setSmoothTransition(!isDragging && !isPanning && !isRotating && !isZooming);
+  }
 
   return (<ReactMapGL {...viewport}
       onViewportChange={setViewport}
-      mapStyle={MapStyle}
-      > 
+      onInteractionStateChange={onInteractionStateChange}
+      mapStyle={MapStyle}> 
       <DroneMarker 
-      longitude={DefaultViewport.longitude} 
-      latitude={DefaultViewport.latitude}
-      offset={offset}
-      />
+      longitude={DefaultViewport.longitude + offset} 
+      latitude={DefaultViewport.latitude + offset}
+      smoothTransition={smoothTransition} />
       </ReactMapGL>);
 }
