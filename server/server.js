@@ -4,6 +4,7 @@ import App from '../common/App'
 import express from 'express'
 import graphqlHTTP from 'express-graphql'
 import { buildSchema } from 'graphql';
+import path from 'path'
 
 const schema = buildSchema(`
   type Query {
@@ -25,34 +26,5 @@ app.use('/graphql', graphqlHTTP({
 }));
 
 app.use(express.static('assets'));
-
-app.get('*', (req,res) => {
-    let application = renderToString(<App />)
-    let html = `<!doctype html>
-    <html class="no-js" lang="">
-        <head>
-            <meta charset="utf-8">
-            <meta http-equiv="x-ua-compatible" content="ie=edge">
-            <title>HMR all the things!</title>
-            <meta name="description" content="">
-            <meta name="viewport" content="width=device-width,  initial-scale=1">
-            <link href='/css/mapbox-gl.css' rel='stylesheet' />
-            <style>
-            * {
-              margin: 0;
-              padding: 0;
-            }
-            #root {
-              height: 100%;
-            }
-            </style
-        </head>
-        <body>
-            <div id="root">${application}</div>
-        </body>
-        <script src="http://localhost:3001/client.js"></script>
-    </html>`
-res.send(html)
-});
 
 export default app
