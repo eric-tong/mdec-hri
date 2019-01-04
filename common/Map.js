@@ -9,7 +9,7 @@ export default function Map() {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setOffset(offset => offset + 1), 100);
+    const id = setInterval(() => setOffset(offset => offset + 0.0002), 2000);
     return () => clearInterval(id);
   });
 
@@ -19,7 +19,7 @@ export default function Map() {
       > 
       <DroneMarker 
       longitude={DefaultViewport.longitude} 
-      latitude ={DefaultViewport.latitude}
+      latitude={DefaultViewport.latitude}
       offset={offset}
       />
       </ReactMapGL>);

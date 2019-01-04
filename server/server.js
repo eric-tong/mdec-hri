@@ -36,7 +36,7 @@ app.get('*', (req,res) => {
             <title>HMR all the things!</title>
             <meta name="description" content="">
             <meta name="viewport" content="width=device-width,  initial-scale=1">
-            <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+            <link href='/css/mapbox-gl.css' rel='stylesheet' />
             <style>
             * {
               margin: 0;
