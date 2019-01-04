@@ -3,7 +3,7 @@ import {BaseControl} from 'react-map-gl';
 
 export default class DroneMarker extends BaseControl {
   _render() {
-    const {longitude, latitude, smoothTransition} = this.props;
+    const {longitude, latitude} = this.props;
 
     const coords = this._context.viewport.project([longitude, latitude]);
 
@@ -13,11 +13,9 @@ export default class DroneMarker extends BaseControl {
       left: coords[0],
       top: coords[1]
     };
-
-    if (smoothTransition)
+    
+    if (!this._context.isDragging)
       markerStyle.transition = 'left 200ms, top 200ms';
-
-    console.log(smoothTransition, coords);
 
     return (
       <div ref={this._containerRef}
