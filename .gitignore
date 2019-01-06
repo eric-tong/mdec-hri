@@ -22,3 +22,4 @@ chrome-user-data
 *.swp
 *.swobuild/
 .build/
+*.code-workspace
