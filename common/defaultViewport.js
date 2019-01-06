@@ -1,4 +1,4 @@
-export const DefaultViewport = {
+export const defaultViewport = {
 	width: '100%',
 	height: '100vh',
 	latitude: 51.7520,

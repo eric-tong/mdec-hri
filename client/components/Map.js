@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL from 'react-map-gl';
 import { MapStyle } from '../styles/MapStyle.js';
 import DroneMarker from './DroneMarker.js';
-import { DefaultViewport } from '../styles/DefaultViewport.js';
+import { defaultViewport } from '../../common/defaultViewport';
 
 export default function Map() {
-  const [viewport, setViewport] = useState(DefaultViewport);
+  const [viewport, setViewport] = useState(defaultViewport);
   const [offset, setOffset] = useState([0, 0]);
   const [bearing, setBearing] = useState(0);
   const radius = 0.003;
@@ -26,8 +26,8 @@ export default function Map() {
       onViewportChange={setViewport}
       mapStyle={MapStyle}>
       <DroneMarker
-        longitude={DefaultViewport.longitude + offset[0]}
-        latitude={DefaultViewport.latitude + offset[1]}
+        longitude={defaultViewport.longitude + offset[0]}
+        latitude={defaultViewport.latitude + offset[1]}
         bearing={bearing} />
     </ReactMapGL>
   );
