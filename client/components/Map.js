@@ -6,18 +6,25 @@ import { defaultViewport } from '../../common/defaultViewport';
 
 export default function Map() {
   const [viewport, setViewport] = useState(defaultViewport);
-  const [offset, setOffset] = useState([0, 0]);
-  const [bearing, setBearing] = useState(0);
-  const radius = 0.003;
+  const [drones, setDrones] = useState([]);
+
+  const fetchDrones = () => fetch('http://localhost:3000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: `{ 
+        drones {
+          id 
+          longitude
+          latitude
+          bearing 
+        } 
+    }` }),
+  }).then(res => res.json())
+    .then(res => setDrones(res.data.drones));
 
   useEffect(() => {
-    const id = setInterval(() => {
-      const newBearing = bearing + 10;
-      const newOffsetX = -radius * Math.cos(newBearing / 180 * Math.PI);
-      const newOffsetY = radius * Math.sin(newBearing / 180 * Math.PI);
-      setBearing(newBearing);
-      setOffset([newOffsetX, newOffsetY]);
-    }, 1000);
+    const id = setInterval(fetchDrones, 1000);
     return () => clearInterval(id);
   });
 
@@ -25,10 +32,7 @@ export default function Map() {
     <ReactMapGL {...viewport}
       onViewportChange={setViewport}
       mapStyle={MapStyle}>
-      <DroneMarker
-        longitude={defaultViewport.longitude + offset[0]}
-        latitude={defaultViewport.latitude + offset[1]}
-        bearing={bearing} />
+      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
     </ReactMapGL>
   );
 }

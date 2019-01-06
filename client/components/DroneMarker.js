@@ -3,7 +3,7 @@ import { BaseControl } from 'react-map-gl';
 
 export default class DroneMarker extends BaseControl {
   _render() {
-    const { longitude, latitude, bearing } = this.props;
+    const { longitude, latitude, bearing } = this.props.drone;
 
     const coords = this._context.viewport.project([longitude, latitude]);
 
