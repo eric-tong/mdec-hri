@@ -8,11 +8,11 @@ export const root = {
         const offsetX = -radius * Math.cos(bearing / 180 * Math.PI);
         const offsetY = radius * Math.sin(bearing / 180 * Math.PI);
 
-        return {
+        return [{
             id: 1,
             longitude: defaultViewport.longitude + offsetX, 
             latitude: defaultViewport.latitude + offsetY,
             bearing: bearing
-        };
+        }];
     },
 };
