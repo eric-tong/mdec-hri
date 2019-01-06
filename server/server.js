@@ -1,10 +1,6 @@
-import React from 'react'
-import { renderToString } from 'react-dom/server'
-import App from '../common/App'
-import express from 'express'
-import graphqlHTTP from 'express-graphql'
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
 import { buildSchema } from 'graphql';
-import path from 'path'
 
 const schema = buildSchema(`
   type Query {
@@ -27,4 +23,4 @@ app.use('/graphql', graphqlHTTP({
 
 app.use(express.static('assets'));
 
-export default app
+export default app;
