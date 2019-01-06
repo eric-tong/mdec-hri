@@ -12,8 +12,8 @@ html {
 }
 
 .drone-marker {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 3rem;
+    height: 3rem;
     position: absolute;
     background: url('/images/drone-icon.svg') no-repeat center / cover;
 }

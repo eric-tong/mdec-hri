@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="41px" height="38px" viewBox="0 0 41 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
-    <title>drone-icon</title>
+    <title>Group 2</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <path d="M155.778136,141.344192 L164.510911,156.218525 C165.909006,158.599868 165.111926,161.663707 162.730584,163.061802 C161.963051,163.512423 161.089146,163.75 160.199109,163.75 L142.733558,163.75 C139.972134,163.75 137.733558,161.511424 137.733558,158.75 C137.733558,157.859963 137.971135,156.986058 138.421756,156.218525 L147.154532,141.344192 C148.552627,138.96285 151.616466,138.16577 153.997808,139.563865 C154.733396,139.995731 155.346269,140.608604 155.778136,141.344192 Z" id="path-1"></path>
-        <filter x="-19.4%" y="-12.2%" width="138.7%" height="154.2%" filterUnits="objectBoundingBox" id="filter-2">
-            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
-            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+        <circle id="path-1" cx="18" cy="35" r="18"></circle>
+        <filter x="-41.7%" y="-41.7%" width="183.3%" height="183.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
             <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.207144475 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.158288043 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
     </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="drone-green" transform="translate(-131.000000, -134.000000)">
-            <g id="drone-icon">
-                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                <use stroke-opacity="0.809641078" stroke="#000000" stroke-width="1" fill="#56D716" fill-rule="evenodd" xlink:href="#path-1"></use>
+        <g id="drone-green-copy" transform="translate(-116.000000, -111.000000)">
+            <g id="Group-2" transform="translate(133.000000, 116.000000)">
+                <g id="Group">
+                    <g id="Oval">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke-opacity="0.809641078" stroke="#FFFFFF" stroke-width="3" fill="#56D716" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <polygon id="Triangle" fill="#56D716" points="18 0 26 10 10 10"></polygon>
+                </g>
             </g>
         </g>
     </g>

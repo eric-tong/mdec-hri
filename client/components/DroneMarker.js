@@ -14,7 +14,7 @@ export default class DroneMarker extends BaseControl {
     };
 
     if (!this._context.isDragging)
-      markerStyle.transition = 'left 200ms, top 200ms';
+      markerStyle.transition = 'left 200ms, top 200ms, transform 200ms';
 
     return (
       <div className={'drone-marker'} ref={this._containerRef}
