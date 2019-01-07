@@ -24,7 +24,7 @@ export default function Map() {
     .then(res => setDrones(res.data.drones));
 
   useEffect(() => {
-    const id = setInterval(fetchDrones, 1000);
+    const id = setInterval(fetchDrones, 2000);
     return () => clearInterval(id);
   });
 
