@@ -1,4 +1,4 @@
-const defaultCoords = {
+const baseCoords = {
     latitude: 51.7520,
     longitude: -1.2577,
 }
@@ -15,14 +15,16 @@ const root = {
             const offsets = getOffsets(bearing, radius * (i + 1) / 2);
             drones.push({
                 id: i,
-                longitude: defaultCoords.longitude + offsets[0],
-                latitude: defaultCoords.latitude + offsets[1],
+                longitude: baseCoords.longitude + offsets[0],
+                latitude: baseCoords.latitude + offsets[1],
                 bearing: bearing
             });
         }
-
         return drones;
     },
+    base: () => {
+        return baseCoords;
+    }
 };
 
 function getOffsets(bearing, radius) {

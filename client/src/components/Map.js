@@ -3,12 +3,12 @@ import ReactMapGL from 'react-map-gl';
 import { MapStyle } from '../styles/MapStyle.js';
 import DroneMarker from './DroneMarker.js';
 
-export default function Map() {
+export default function Map(props) {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100vh',
-    latitude: 51.7520,
-    longitude: -1.2577,
+    latitude: props.base.latitude,
+    longitude: props.base.longitude,
     zoom: 15,
     minZoom: 15,
     maxZoom: 20
