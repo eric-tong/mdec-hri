@@ -5,7 +5,7 @@ import DroneMarker from './DroneMarker.js';
 import { defaultViewport } from '../styles/defaultViewport';
 import { graphqlFetch } from '../utils/graphqlFetch.js';
 
-export default function Map(props) {
+export default function Map() {
   const [viewport, setViewport] = useViewport();
   const drones = useDrones();
 
