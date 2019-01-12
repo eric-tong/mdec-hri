@@ -6,12 +6,8 @@ import { defaultViewport } from '../styles/defaultViewport';
 import { graphqlFetch } from '../utils/graphqlFetch.js';
 
 export default function Map(props) {
-  const [viewport, setViewport] = useState(defaultViewport);
+  const [viewport, setViewport] = useViewport();
   const drones = useDrones();
-
-  if (viewport.longitude === undefined || viewport.latitude === undefined) {
-    graphqlFetch(`{base {longitude latitude}}`).then(data => setViewport(viewport => Object.assign(viewport, data.base)))
-  }
 
   return (
     <ReactMapGL {...viewport}
@@ -22,23 +18,20 @@ export default function Map(props) {
   );
 }
 
+function useViewport() {
+  const [viewport, setViewport] = useState(defaultViewport);
+  if (viewport.longitude === undefined || viewport.latitude === undefined) {
+    graphqlFetch('{base {longitude latitude}}')
+      .then(data => setViewport(viewport => Object.assign(viewport, data.base)))
+  }
+  return [viewport, setViewport]
+}
+
 function useDrones() {
   const [drones, setDrones] = useState([]);
-
-  const fetchDrones = () => fetch('graphql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      query: `{ 
-        drones {
-          id 
-          longitude
-          latitude
-          bearing 
-        } 
-    }` }),
-  }).then(res => res.json())
-    .then(res => setDrones(res.data.drones));
+  const fetchDrones = () =>
+    graphqlFetch('{drones {id longitude latitude bearing}}')
+      .then(data => setDrones(data.drones));
 
   useEffect(() => {
     const id = setInterval(fetchDrones, 2000);
