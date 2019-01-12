@@ -1,12 +1,7 @@
-const defaultViewport = {
-    width: '100%',
-    height: '100vh',
+const defaultCoords = {
     latitude: 51.7520,
     longitude: -1.2577,
-    zoom: 15,
-    minZoom: 15,
-    maxZoom: 20
-  }
+}
 
 const root = {
     drones: () => {
@@ -20,8 +15,8 @@ const root = {
             const offsets = getOffsets(bearing, radius * (i + 1) / 2);
             drones.push({
                 id: i,
-                longitude: defaultViewport.longitude + offsets[0],
-                latitude: defaultViewport.latitude + offsets[1],
+                longitude: defaultCoords.longitude + offsets[0],
+                latitude: defaultCoords.latitude + offsets[1],
                 bearing: bearing
             });
         }

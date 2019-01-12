@@ -8,4 +8,4 @@ const http = graphqlHTTP({
   graphiql: true,
 });
 
-module.export = http;
+module.exports = http;
