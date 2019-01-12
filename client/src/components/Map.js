@@ -2,13 +2,20 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import { MapStyle } from '../styles/MapStyle.js';
 import DroneMarker from './DroneMarker.js';
-import { defaultViewport } from '../../common/defaultViewport';
 
 export default function Map() {
-  const [viewport, setViewport] = useState(defaultViewport);
+  const [viewport, setViewport] = useState({
+    width: '100%',
+    height: '100vh',
+    latitude: 51.7520,
+    longitude: -1.2577,
+    zoom: 15,
+    minZoom: 15,
+    maxZoom: 20
+  });
   const [drones, setDrones] = useState([]);
 
-  const fetchDrones = () => fetch('http://localhost:3000/graphql', {
+  const fetchDrones = () => fetch('graphql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

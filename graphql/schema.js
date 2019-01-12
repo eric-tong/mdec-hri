@@ -1,6 +1,6 @@
-import { buildSchema } from 'graphql';
+const graphql = require('graphql');
 
-export const schema = buildSchema(`
+const schema = graphql.buildSchema(`
   type Query {
     drones: [Drone]
   }
@@ -12,3 +12,5 @@ export const schema = buildSchema(`
     bearing: Float
   }
 `);
+
+module.exports = schema;

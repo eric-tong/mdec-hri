@@ -1,6 +1,14 @@
-import { defaultViewport } from '../../common/defaultViewport';
+const defaultViewport = {
+    width: '100%',
+    height: '100vh',
+    latitude: 51.7520,
+    longitude: -1.2577,
+    zoom: 15,
+    minZoom: 15,
+    maxZoom: 20
+  }
 
-export const root = {
+const root = {
     drones: () => {
         const N = 3;
         const time = new Date().getTime() / 99;
@@ -27,3 +35,5 @@ function getOffsets(bearing, radius) {
     const offsetY = radius * Math.sin(bearing / 180 * Math.PI);
     return [offsetX, offsetY];
 }
+
+module.exports = root;

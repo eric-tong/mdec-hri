@@ -48,13 +48,13 @@ export const MapStyle = {
         "composite": {
             "type": "vector",
             "tiles": [
-            "http://localhost:3000/maps/{z}/{x}/{y}.vector.pbf"
+            `${window.location.origin.toString()}/maps/{z}/{x}/{y}.vector.pbf`
             ],
             "minzoom": 14,
             "maxzoom": 14
         }
     },
-    "glyphs": "http://localhost:3000/fonts/{fontstack}/{range}.pbf",
+    "glyphs": `${window.location.origin.toString()}/assets/fonts/{fontstack}/{range}.pbf`,
     "layers": [
         {
             "id": "background",
