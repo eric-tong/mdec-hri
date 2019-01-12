@@ -2,17 +2,27 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import { MapStyle } from '../styles/MapStyle.js';
 import DroneMarker from './DroneMarker.js';
+import { defaultViewport } from '../styles/defaultViewport';
+import { graphqlFetch } from '../utils/graphqlFetch.js';
 
 export default function Map(props) {
-  const [viewport, setViewport] = useState({
-    width: '100%',
-    height: '100vh',
-    latitude: props.base.latitude,
-    longitude: props.base.longitude,
-    zoom: 15,
-    minZoom: 15,
-    maxZoom: 20
-  });
+  const [viewport, setViewport] = useState(defaultViewport);
+  const drones = useDrones();
+
+  if (viewport.longitude === undefined || viewport.latitude === undefined) {
+    graphqlFetch(`{base {longitude latitude}}`).then(data => setViewport(viewport => Object.assign(viewport, data.base)))
+  }
+
+  return (
+    <ReactMapGL {...viewport}
+      onViewportChange={setViewport}
+      mapStyle={MapStyle}>
+      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
+    </ReactMapGL>
+  );
+}
+
+function useDrones() {
   const [drones, setDrones] = useState([]);
 
   const fetchDrones = () => fetch('graphql', {
@@ -35,11 +45,5 @@ export default function Map(props) {
     return () => clearInterval(id);
   });
 
-  return (
-    <ReactMapGL {...viewport}
-      onViewportChange={setViewport}
-      mapStyle={MapStyle}>
-      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
-    </ReactMapGL>
-  );
+  return drones;
 }
