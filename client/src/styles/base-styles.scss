@@ -1,4 +1,3 @@
-/* latin */
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
@@ -15,6 +14,20 @@
 html {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 16px;
+    color: rgb(120, 120, 120);
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: rgb(150, 150, 150);
 }
 
 #root {
@@ -25,12 +38,37 @@ html {
     position: absolute;
     background: white;
     border-radius: 2rem;
-    height: 20rem;
     width: 15rem;
     box-shadow: 0 0.25rem 0.75rem 0 rgba(0, 0, 0, 0.1);
     top: 0;
     right: 0;
     margin: 3rem 3.25rem;
+    overflow: hidden;
+    
+    > * {
+        padding: 1rem 1.25rem;
+    }
+
+    .section {
+        cursor: pointer;
+        transition: background-color 200ms;
+
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        &:not(:last-child) { 
+            border-bottom: 1px solid rgb(230, 230, 230);  
+        }
+
+        &:last-child {
+            padding-bottom: 1.5rem;
+        }
+        
+        &:hover {
+            background-color: rgb(250, 250, 250);
+        }
+    }
 }
 
 .drone-marker {
