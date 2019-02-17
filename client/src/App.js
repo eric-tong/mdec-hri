@@ -4,9 +4,6 @@ import OverviewCard from './components/OverviewCard.js';
 import './styles/base-styles.scss'
 
 function App() {
-    return <>
-    <Map />
-    <OverviewCard />
-    </>
+    return <Map />
 }
 export default App
