@@ -5,8 +5,8 @@ const drones = Array.from({ length: 1 }, (v, k) => {
         id: k,
         longitude: baseCoords.longitude,
         latitude: baseCoords.latitude,
-        targetLongitude: baseCoords.longitude + 0.01,
-        targetLatitude: baseCoords.latitude + 0.01,
+        targetLongitude: baseCoords.longitude + 0.005,
+        targetLatitude: baseCoords.latitude + 0.005,
         bearing: 0,
     }
 })
