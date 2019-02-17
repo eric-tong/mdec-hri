@@ -26,7 +26,7 @@ function setTarget({ id, longitude, latitude }) {
 function rotateToTarget(drone) {
     dx = drone.targetLatitude - drone.latitude;
     dy = drone.targetLongitude - drone.longitude;
-    drone.bearing = Math.atan2(dx, dy) / Math.PI * 180;
+    drone.bearing = Math.atan2(dy, dx) / Math.PI * 180;
 }
 
 const velocity = 0.001;
