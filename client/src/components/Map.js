@@ -4,6 +4,7 @@ import { MapStyle } from '../styles/MapStyle.js';
 import DroneMarker from './DroneMarker.js';
 import { defaultViewport } from '../styles/defaultViewport';
 import { graphqlFetch } from '../utils/graphqlFetch.js';
+import TargetMarker from './TargetMarker.js';
 
 export default function Map() {
   const [viewport, setViewport] = useViewport();
@@ -14,7 +15,7 @@ export default function Map() {
       onViewportChange={setViewport}
       mapStyle={MapStyle}>
       {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
-      {drones.map(drone => <DroneMarker key={drone.id+10} drone={{longitude: drone.targetLongitude, latitude: drone.targetLatitude, bearing: 0}} />)}
+      {drones.map(drone => <TargetMarker key={drone.id} target={{longitude: drone.targetLongitude, latitude: drone.targetLatitude}} />)}
     </ReactMapGL>
   );
 }
