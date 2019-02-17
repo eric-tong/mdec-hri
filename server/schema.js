@@ -15,6 +15,8 @@ const schema = graphql.buildSchema(`
     id: ID
     longitude: Float
     latitude: Float
+    targetLongitude: Float
+    targetLatitude: Float
     bearing: Float
   }
 `);
