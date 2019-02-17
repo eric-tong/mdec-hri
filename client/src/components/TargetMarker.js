@@ -1,19 +1,11 @@
 import React from 'react';
-import { BaseControl } from 'react-map-gl';
+import { Marker } from 'react-map-gl';
+import { graphqlFetch } from '../utils/graphqlFetch';
 
-export default class TargetMarker extends BaseControl {
-  _render() {
-    const { longitude, latitude } = this.props.target;
-    const coords = this._context.viewport.project([longitude, latitude]);
+export default function TargetMarker({ target }) {
+  return <Marker {...target} draggable onDragEnd={onDragEnd} className="target-marker" />
+}
 
-    const markerStyle = {
-      left: coords[0],
-      top: coords[1]
-    };
-
-    return (
-      <div className={'target-marker'} ref={this._containerRef}
-        style={markerStyle} />
-    );
-  }
+function onDragEnd({ lngLat }) {
+  graphqlFetch(`mutation { setTarget(id: "0", latitude: ${lngLat[1]}, longitude: ${lngLat[0]}) }`);
 }

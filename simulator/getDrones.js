@@ -17,6 +17,11 @@ function getDrones() {
     return drones;
 }
 
+function setTarget({ id, longitude, latitude }) {
+    drone = drones.find(drone => drone.id == id);
+    drone.targetLongitude = longitude;
+    drone.targetLatitude = latitude;
+}
 
 function rotateToTarget(drone) {
     dx = drone.targetLatitude - drone.latitude;
@@ -31,4 +36,4 @@ function move(drone) {
     drone.longitude += Math.sin(drone.bearing / 180 * Math.PI) * velocity;
 }
 
-module.exports = getDrones;
+module.exports = [getDrones, setTarget];

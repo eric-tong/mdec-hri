@@ -1,6 +1,9 @@
+const [getDrones, setTarget] = require('../simulator/getDrones');
+
 const root = {
+    setTarget: setTarget,
     drones: () => {
-        return require('../simulator/getDrones')();
+        return getDrones();
     },
     base: () => {
         return require('../simulator/baseCoords');

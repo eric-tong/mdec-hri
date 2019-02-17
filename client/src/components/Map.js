@@ -14,8 +14,8 @@ export default function Map() {
     <ReactMapGL {...viewport}
       onViewportChange={setViewport}
       mapStyle={MapStyle}>
-      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
       {drones.map(drone => <TargetMarker key={drone.id} target={{longitude: drone.targetLongitude, latitude: drone.targetLatitude}} />)}
+      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
     </ReactMapGL>
   );
 }

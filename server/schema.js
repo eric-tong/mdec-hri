@@ -1,6 +1,10 @@
 const graphql = require('graphql');
 
 const schema = graphql.buildSchema(`
+  type Mutation {
+    setTarget(id: ID, latitude: Float, longitude: Float): String
+  }
+
   type Query {
     base: Base
     drones: [Drone]
