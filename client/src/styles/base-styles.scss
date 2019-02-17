@@ -7,8 +7,13 @@ html {
     font-size: 16px;
 }
 
+body {
+    background: blue;
+}
+
 #root {
     height: 100%;
+    width: 100vw;
 }
 
 .overview {

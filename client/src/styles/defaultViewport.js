@@ -1,5 +1,5 @@
 export const defaultViewport = {
-    width: '100%',
+    width: '100vw',
     height: '100vh',
     zoom: 15,
     minZoom: 15,
