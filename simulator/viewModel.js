@@ -1,4 +1,7 @@
-const baseCoords = require('./baseCoords');
+const baseCoords = {
+    latitude: 51.7520,
+    longitude: -1.2577,
+}
 
 const drones = Array.from({ length: 1 }, (v, k) => {
     return {
@@ -11,4 +14,4 @@ const drones = Array.from({ length: 1 }, (v, k) => {
     }
 })
 
-module.exports = drones;
+module.exports = { drones: drones, baseCoords: baseCoords };

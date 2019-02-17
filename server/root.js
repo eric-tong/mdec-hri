@@ -1,13 +1,10 @@
 const setTarget = require('../simulator/controller');
+const { baseCoords, drones } = require('../simulator/viewModel');
 
 const root = {
     setTarget: setTarget,
-    drones: () => {
-        return require('../simulator/drones');
-    },
-    base: () => {
-        return require('../simulator/baseCoords');
-    }
+    drones: () => drones,
+    base: () => baseCoords
 };
 
 module.exports = root;

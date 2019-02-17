@@ -1,4 +1,4 @@
-const drones = require('./drones');
+const { drones } = require('./viewModel');
 const toDegrees = require('../utils/toDegrees');
 const toRadians = require('../utils/toRadians');
 
