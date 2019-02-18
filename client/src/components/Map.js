@@ -14,7 +14,7 @@ export default function Map() {
     <ReactMapGL {...viewport}
       onViewportChange={setViewport}
       mapStyle={MapStyle}>
-      {drones.map(drone => <TargetMarker key={drone.id} target={{id: drone.id, longitude: drone.targetLongitude, latitude: drone.targetLatitude}} />)}
+      {drones.map(drone => <TargetMarker key={drone.id} id={drone.id} />)}
       {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
     </ReactMapGL>
   );
@@ -32,7 +32,7 @@ function useViewport() {
 function useDrones() {
   const [drones, setDrones] = useState([]);
   const fetchDrones = () =>
-    graphqlFetch('{drones {id longitude latitude targetLongitude targetLatitude bearing}}')
+    graphqlFetch('{drones {id longitude latitude bearing}}')
       .then(data => setDrones(data.drones));
 
   useEffect(() => {
