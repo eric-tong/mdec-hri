@@ -8,13 +8,14 @@ setInterval(() => {
 }, 500);
 
 const maxVelocity = 0.0002;
-const circlingRadius = 0.0015;
+const maxCirclingRadius = 0.0015;
 
 function rotateToTarget(drone) {
     const dx = drone.targetLatitude - drone.latitude;
     const dy = drone.targetLongitude - drone.longitude;
     const d = Math.sqrt(dx * dx + dy * dy);
-    
+    const circlingRadius = Math.min(d, maxCirclingRadius);
+
     const targetBearing = toDegrees(Math.atan2(dy, dx) - Math.asin(circlingRadius / d));
     var dBearing = (targetBearing - drone.bearing) % 360;
 
