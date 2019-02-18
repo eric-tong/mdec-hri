@@ -3,13 +3,16 @@ const baseCoords = {
     longitude: -1.2577,
 }
 
-const drones = Array.from({ length: 1 }, (v, k) => {
+const N = 3;
+const segment = 2 * Math.PI / N;
+
+const drones = Array.from({ length: N }, (v, k) => {
     return {
         id: k,
         longitude: baseCoords.longitude,
         latitude: baseCoords.latitude,
-        targetLongitude: baseCoords.longitude + 0.005,
-        targetLatitude: baseCoords.latitude + 0.005,
+        targetLongitude: baseCoords.longitude + 0.004 * Math.sin(segment * k),
+        targetLatitude: baseCoords.latitude + 0.004 * Math.cos(segment * k),
         bearing: 0,
     }
 })
