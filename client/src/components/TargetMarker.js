@@ -8,9 +8,9 @@ export default function TargetMarker({ id }) {
   useEffect(() => {
     graphqlFetch('{drones {id targetLongitude targetLatitude}}')
       .then(data => data.drones)
-      .then(drones => drones.find(drone => drone.id == id))
+      .then(drones => drones.find(drone => drone.id === id))
       .then(drone => ({ longitude: drone.targetLongitude, latitude: drone.targetLatitude }))
-      .then(target => setTarget(target));
+      .then(setTarget);
   }, [id]);
 
   const onDragEnd = ({ lngLat }) => {
