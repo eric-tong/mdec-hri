@@ -5,12 +5,17 @@ import { graphqlFetch } from '../utils/graphqlFetch';
 export default function TargetMarker({ id }) {
   const [target, setTarget] = useState({ longitude: 0, latitude: 0 });
 
-  useEffect(() => {
+  const fetchTargets = () => {
     graphqlFetch('{drones {id targetLongitude targetLatitude}}')
       .then(data => data.drones)
       .then(drones => drones.find(drone => drone.id === id))
       .then(drone => ({ longitude: drone.targetLongitude, latitude: drone.targetLatitude }))
       .then(setTarget);
+  }
+
+  useEffect(() => {
+    const interval = setInterval(fetchTargets, 2000);
+    return () => clearInterval(interval);
   }, [id]);
 
   const onDragEnd = ({ lngLat }) => {
