@@ -9,13 +9,14 @@ import TargetMarker from './TargetMarker.js';
 export default function Map() {
   const [viewport, setViewport] = useViewport();
   const drones = useDrones();
+  const [activeDrone, setActiveDrone] = useState();
 
   return (
     <ReactMapGL {...viewport}
       onViewportChange={setViewport}
       mapStyle={MapStyle}>
-      {drones.map(drone => <TargetMarker key={drone.id} id={drone.id} />)}
-      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} />)}
+      {typeof activeDrone !== 'undefined' && <TargetMarker id={activeDrone.id} />}
+      {drones.map(drone => <DroneMarker key={drone.id} drone={drone} onClick={_ => setActiveDrone(drone)} />)}
     </ReactMapGL>
   );
 }

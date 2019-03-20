@@ -16,8 +16,7 @@ export default class DroneMarker extends BaseControl {
       markerStyle.transition = 'left 200ms, top 200ms, transform 200ms';
 
     return (
-      <div className={'drone-marker'} ref={this._containerRef}
-        style={markerStyle} />
+      <div className={'drone-marker'} ref={this._containerRef} style={markerStyle} onClick={this.props.onClick} />
     );
   }
 }

@@ -8,20 +8,21 @@ const schema = graphql.buildSchema(`
   type Query {
     base: Base
     drones: [Drone]
+    drone(id: ID!): Drone
   }
 
   type Base {
-    longitude: Float
-    latitude: Float
+    longitude: Float!
+    latitude: Float!
   }
 
   type Drone {
-    id: ID
-    longitude: Float
-    latitude: Float
-    targetLongitude: Float
-    targetLatitude: Float
-    bearing: Float
+    id: ID!
+    longitude: Float!
+    latitude: Float!
+    targetLongitude: Float!
+    targetLatitude: Float!
+    bearing: Float!
   }
 `);
 
