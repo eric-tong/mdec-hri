@@ -6,7 +6,7 @@ export default function TargetMarker({ id }) {
   const [target, setTarget] = useState({ longitude: 0, latitude: 0 });
 
   const fetchTargets = () => {
-    graphqlFetch(`{drone(id: ${id}) {id targetLongitude targetLatitude}}`)
+    graphqlFetch('query($id: ID!) {drone(id: $id) {id targetLongitude targetLatitude}}', {id})
       .then(data => data.drone)
       .then(drone => ({ longitude: drone.targetLongitude, latitude: drone.targetLatitude }))
       .then(setTarget);

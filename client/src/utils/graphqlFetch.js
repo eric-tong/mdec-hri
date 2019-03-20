@@ -1,9 +1,10 @@
-export const graphqlFetch = query =>
+export const graphqlFetch = (query, variables) =>
     fetch('graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            query: query
+            query: query,
+            variables: variables
         }),
     }).then(res => res.json())
     .then(res => res.data)
